@@ -57,6 +57,7 @@ export function Header() {
       </div>
       <div className="flex items-center justify-end space-x-2">
         <p className="text-md font-bold">Coming Soon</p>
+        <IconGitHub />
         {/* <a
           target="_blank"
           href="https://github.com/vercel/nextjs-ai-chatbot/"
