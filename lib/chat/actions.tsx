@@ -122,7 +122,7 @@ async function  sendRequest(content: string) {
 
     return await res.json();
   } catch (err) {
-    console.log(err.message);
+    console.log(err);
   }
 };
 
