@@ -33,14 +33,28 @@ export function BotMessage({
   className?: string
 }) {
   const text = useStreamableText(content)
+  let serviceData = null
+  try {
+    serviceData = JSON.parse(content)
+  } catch (error) {
+    console.log("now response", error)
+  }
 
+  const keyVale = serviceData && serviceData.length && Object.entries(serviceData[0].details).map(([key, value]) => (
+    <div className="text-sm text-zinc-600">{value}</div>
+  ))
   return (
     <div className={cn('group relative flex items-start md:-ml-12', className)}>
       <div className="flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-primary text-primary-foreground shadow-sm">
         <IconOpenAI />
       </div>
       <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
-        <MemoizedReactMarkdown
+        <div
+          className={`cursor-pointer rounded-lg border bg-white p-4 hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900`}
+        >
+          {keyVale ? keyVale : 'No match found for your service, please try after sometime'}
+        </div>
+        {/* <MemoizedReactMarkdown
           className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
           remarkPlugins={[remarkGfm, remarkMath]}
           components={{
@@ -80,7 +94,7 @@ export function BotMessage({
           }}
         >
           {text}
-        </MemoizedReactMarkdown>
+        </MemoizedReactMarkdown> */}
       </div>
     </div>
   )

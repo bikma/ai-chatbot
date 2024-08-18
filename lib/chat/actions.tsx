@@ -108,7 +108,7 @@ async function confirmPurchase(symbol: string, price: number, amount: number) {
 
 async function  sendRequest(content: string) {
   try {
-    const res = await fetch('http://127.0.0.1:54321/functions/v1/handle-message', {
+    const res = await fetch('http://127.0.0.1:54321/functions/v1/tryat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
