@@ -9,8 +9,14 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import { StreamableValue, useStreamableValue } from 'ai/rsc'
 import { useStreamableText } from '@/lib/hooks/use-streamable-text'
+import { FaLocationDot, FaPhone, FaUser } from 'react-icons/fa6'
+import {
+  MdEmail,
+  MdOutlineAccessTimeFilled,
+  MdInfo
+} from 'react-icons/md'
 
-// Different types of message bubbles.
+// Different types of message bubbles.,
 
 export function UserMessage({ children }: { children: React.ReactNode }) {
   return (
@@ -35,25 +41,18 @@ export function BotMessage({
   const text = useStreamableText(content)
   let serviceData = null
   try {
-    serviceData = JSON.parse(content)
+    const data = JSON.parse(content)
+    serviceData = data[0].details
   } catch (error) {
-    console.log("now response", error)
+    console.log('Error', error)
   }
 
-  const keyVale = serviceData && serviceData.length && Object.entries(serviceData[0].details).map(([key, value]) => (
-    <div className="text-sm text-zinc-600">{value}</div>
-  ))
   return (
     <div className={cn('group relative flex items-start md:-ml-12', className)}>
       <div className="flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-primary text-primary-foreground shadow-sm">
         <IconOpenAI />
       </div>
       <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
-        <div
-          className={`cursor-pointer rounded-lg border bg-white p-4 hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900`}
-        >
-          {keyVale ? keyVale : 'No match found for your service, please try after sometime'}
-        </div>
         {/* <MemoizedReactMarkdown
           className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
           remarkPlugins={[remarkGfm, remarkMath]}
@@ -95,6 +94,73 @@ export function BotMessage({
         >
           {text}
         </MemoizedReactMarkdown> */}
+        <div className="bg-white p-3 rounded-lg shadow-lg  w-full">
+          {serviceData.classification && (
+            <div className="mb-1 flex items-center">
+              <div className="mr-4">
+                <FaUser />
+              </div>
+              <h2 className="text-xl font-bold flex items-center">
+                {serviceData.name ? serviceData.name : "ANKAIAH BIKKI"}
+              </h2>
+            </div>
+          )}
+          {serviceData.service_type && (
+            <div className="mb-4 ml-8 flex items-center">
+              <div>
+                <p className="text-gray-700">Service Type : {serviceData.service_type}</p>
+              </div>
+            </div>
+          )}
+
+          {serviceData.location_area && <div className="mb-4 flex items-center">
+            <div className="mr-4">
+              <FaLocationDot />
+            </div>
+            <div>
+              <p className="text-gray-700">
+                {serviceData.location_area}, {serviceData.location_nearby}{' '}
+              </p>
+            </div>
+          </div>}
+
+          {serviceData.contact_mobile && <div className="mb-4 flex items-center">
+            <div className="mr-4">
+              <FaPhone />
+            </div>
+            <div>
+              <p className="text-gray-700">{serviceData.contact_mobile}</p>
+            </div>
+          </div>}
+
+          {serviceData.contact_email && <div className="mb-4 flex items-center">
+            <div className="mr-4">
+              <MdEmail />
+            </div>
+            <div>
+              <p className="text-gray-700">{serviceData.contact_email}</p>
+            </div>
+          </div>}
+
+          {serviceData.date_time && <div className="mb-4 flex items-center">
+            <div className="mr-4">
+              <MdOutlineAccessTimeFilled />
+            </div>
+            <div>
+              <p className="text-gray-700">{serviceData.date_time}</p>
+            </div>
+          </div>}
+
+          {(serviceData.Specific || serviceData.Others)&& <div className="flex items-center">
+            <div className="mr-4">
+              <MdInfo />
+            </div>
+            <div>
+              <p className="text-gray-700">{serviceData.Specific}</p>
+              <p className="text-gray-700">{serviceData.Others}</p>
+            </div>
+          </div>}
+        </div>
       </div>
     </div>
   )
