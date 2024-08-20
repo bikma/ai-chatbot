@@ -9,14 +9,8 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import { StreamableValue, useStreamableValue } from 'ai/rsc'
 import { useStreamableText } from '@/lib/hooks/use-streamable-text'
-import { FaLocationDot, FaPhone, FaUser } from 'react-icons/fa6'
-import {
-  MdEmail,
-  MdOutlineAccessTimeFilled,
-  MdInfo
-} from 'react-icons/md'
 
-// Different types of message bubbles.,
+// Different types of message bubbles.
 
 export function UserMessage({ children }: { children: React.ReactNode }) {
   return (
@@ -39,13 +33,6 @@ export function BotMessage({
   className?: string
 }) {
   const text = useStreamableText(content)
-  let serviceData = null
-  try {
-    const data = JSON.parse(content)
-    serviceData = data[0].details
-  } catch (error) {
-    console.log('Error', error)
-  }
 
   return (
     <div className={cn('group relative flex items-start md:-ml-12', className)}>
@@ -53,7 +40,7 @@ export function BotMessage({
         <IconOpenAI />
       </div>
       <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
-        {/* <MemoizedReactMarkdown
+        <MemoizedReactMarkdown
           className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
           remarkPlugins={[remarkGfm, remarkMath]}
           components={{
@@ -92,75 +79,8 @@ export function BotMessage({
             }
           }}
         >
-          {text}
-        </MemoizedReactMarkdown> */}
-        <div className="bg-white p-3 rounded-lg shadow-lg  w-full">
-          {serviceData.classification && (
-            <div className="mb-1 flex items-center">
-              <div className="mr-4">
-                <FaUser />
-              </div>
-              <h2 className="text-xl font-bold flex items-center">
-                {serviceData.name ? serviceData.name : "ANKAIAH BIKKI"}
-              </h2>
-            </div>
-          )}
-          {serviceData.service_type && (
-            <div className="mb-4 ml-8 flex items-center">
-              <div>
-                <p className="text-gray-700">Service Type : {serviceData.service_type}</p>
-              </div>
-            </div>
-          )}
-
-          {serviceData.location_area && <div className="mb-4 flex items-center">
-            <div className="mr-4">
-              <FaLocationDot />
-            </div>
-            <div>
-              <p className="text-gray-700">
-                {serviceData.location_area}, {serviceData.location_nearby}{' '}
-              </p>
-            </div>
-          </div>}
-
-          {serviceData.contact_mobile && <div className="mb-4 flex items-center">
-            <div className="mr-4">
-              <FaPhone />
-            </div>
-            <div>
-              <p className="text-gray-700">{serviceData.contact_mobile}</p>
-            </div>
-          </div>}
-
-          {serviceData.contact_email && <div className="mb-4 flex items-center">
-            <div className="mr-4">
-              <MdEmail />
-            </div>
-            <div>
-              <p className="text-gray-700">{serviceData.contact_email}</p>
-            </div>
-          </div>}
-
-          {serviceData.date_time && <div className="mb-4 flex items-center">
-            <div className="mr-4">
-              <MdOutlineAccessTimeFilled />
-            </div>
-            <div>
-              <p className="text-gray-700">{serviceData.date_time}</p>
-            </div>
-          </div>}
-
-          {(serviceData.Specific || serviceData.Others)&& <div className="flex items-center">
-            <div className="mr-4">
-              <MdInfo />
-            </div>
-            <div>
-              <p className="text-gray-700">{serviceData.Specific}</p>
-              <p className="text-gray-700">{serviceData.Others}</p>
-            </div>
-          </div>}
-        </div>
+          {text.replaceAll("\"","")}
+        </MemoizedReactMarkdown>
       </div>
     </div>
   )
