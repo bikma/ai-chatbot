@@ -3,6 +3,7 @@
 import * as React from 'react'
 
 import { cn } from '@/lib/utils'
+import { IoSendSharp } from "react-icons/io5";
 
 function IconOpenAI({ className, ...props }: React.ComponentProps<'svg'>) {
   return (
@@ -305,6 +306,13 @@ function IconPlus({ className, ...props }: React.ComponentProps<'svg'>) {
 }
 
 function IconArrowElbow({ className, ...props }: React.ComponentProps<'svg'>) {
+  return (
+    <IoSendSharp/>
+  )
+}
+
+
+function IconArrowElbow_org({ className, ...props }: React.ComponentProps<'svg'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

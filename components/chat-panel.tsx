@@ -36,25 +36,25 @@ export function ChatPanel({
 
   const exampleMessages = [
     {
-      heading: 'Puncture',
-      subheading: 'Service offer?',
-      message: `I offer puncture repair services. I'm available at Gachibowli and can provide repairs on 24/7.`
+      heading: 'Puncture - Service offer',
+      subheading: 'Hi! I’m Jake, offering puncture repair services in Gachibowli, near the Inorbit Mall. Text or call me at 555-123-4567 for quick and reliable service!',
+      message: `Hi! I’m Jake, offering puncture repair services in Gachibowli, near the Inorbit Mall. Text or call me at 555-123-4567 for quick and reliable service!`
     },
     {
-      heading: 'Puncture',
-      subheading: 'Service request?',
-      message: `Now I need a puncture repair for my vehicle. I'm located at Gachibowli, opp police station`
+      heading: 'Puncture - Service request',
+      subheading: 'Hi! I need a puncture repair in Gachibowli, near Inorbit Mall. Is anyone available? Please reply or text me at 555-987-6543. Thanks',
+      message: `Hi! I need a puncture repair in Gachibowli, near Inorbit Mall. Is anyone available? Please reply or text me at 555-987-6543. Thanks`
     },
-    {
-      heading: 'Maid',
-      subheading: 'Service offer?',
-      message: `I would like to buy 42 $DOGE`
-    },
-    {
-      heading: 'Maid',
-      subheading: `Service request?`,
-      message: `What are some recent events about $DOGE?`
-    }
+    // {
+    //   heading: 'Maid',
+    //   subheading: 'Service offer?',
+    //   message: `I would like to buy 42 $DOGE`
+    // },
+    // {
+    //   heading: 'Maid',
+    //   subheading: `Service request?`,
+    //   message: `What are some recent events about $DOGE?`
+    // }
   ]
 
   return (
@@ -92,7 +92,7 @@ export function ChatPanel({
                   ])
                 }}
               >
-                <div className="text-sm font-semibold">{example.heading}</div>
+                {/* <div className="text-sm font-semibold">{example.heading}</div> */}
                 <div className="text-sm text-zinc-600">
                   {example.subheading}
                 </div>

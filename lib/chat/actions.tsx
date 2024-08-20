@@ -111,7 +111,7 @@ async function  sendRequest(content: string) {
     const res = await fetch('http://127.0.0.1:54321/functions/v1/tryat', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'text/plain',
       },
       body: JSON.stringify({ message: content }),
     });
@@ -119,8 +119,8 @@ async function  sendRequest(content: string) {
     if (!res.ok) {
       throw new Error('Network response was not ok');
     }
-
-    return await res.json();
+    console.log('res',res)
+    return await res.text();
   } catch (err) {
     console.log(err);
   }
