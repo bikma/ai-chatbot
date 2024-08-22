@@ -108,10 +108,11 @@ async function confirmPurchase(symbol: string, price: number, amount: number) {
 
 async function  sendRequest(content: string) {
   try {
-    const res = await fetch('http://127.0.0.1:54321/functions/v1/tryat', {
+    const res = await fetch('https://nxnmgrfiekfcejgpppia.supabase.co/functions/v1/tryat', {
       method: 'POST',
       headers: {
         'Content-Type': 'text/plain',
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54bm1ncmZpZWtmY2VqZ3BwcGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQyNTY0NzMsImV4cCI6MjAzOTgzMjQ3M30.P0vA4rz0I-PEh9LTb7C7FEePSnuFbIaUk_vyjJi-RVQ' 
       },
       body: JSON.stringify({ message: content }),
     });
@@ -119,7 +120,6 @@ async function  sendRequest(content: string) {
     if (!res.ok) {
       throw new Error('Network response was not ok');
     }
-    console.log('res',res)
     return await res.text();
   } catch (err) {
     console.log(err);
