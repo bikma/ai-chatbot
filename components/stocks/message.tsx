@@ -79,7 +79,7 @@ export function BotMessage({
             }
           }}
         >
-          {text.replaceAll("\"","")}
+          {text.replaceAll("/\n", "<br />")}
         </MemoizedReactMarkdown>
       </div>
     </div>
