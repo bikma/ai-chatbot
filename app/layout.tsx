@@ -15,9 +15,9 @@ export const metadata = {
     : undefined,
   title: {
     default: 'Tryat.ai',
-    template: `%s - Simplifies Service Requests and Offers`
+    template: `%s - Generative On-Demand Services`
   },
-  description: 'An AI-powered chatbot template built with Next.js and Vercel.',
+  description: 'Generative On-Demand Services',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
