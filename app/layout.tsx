@@ -4,10 +4,11 @@ import { GeistMono } from 'geist/font/mono'
 
 import '@/app/globals.css'
 import { cn } from '@/lib/utils'
-import { TailwindIndicator } from '@/components/tailwind-indicator'
+// import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { Providers } from '@/components/providers'
 import { Header } from '@/components/header'
 import { Toaster } from '@/components/ui/sonner'
+import { FooterText } from '@/components/footer'
 
 export const metadata = {
   metadataBase: process.env.VERCEL_URL
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <main className="flex flex-col flex-1 bg-muted/50">{children}</main>
           </div>
           {/* <TailwindIndicator /> */}
+          <FooterText/>
         </Providers>
         <Analytics />
       </body>
