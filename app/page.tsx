@@ -10,15 +10,15 @@ export default async function Home() {
           Generative on-demand service
         </h1>
         <p>
-          Discover the ease of tryat.ai's on-demand services, where help is
+          Discover the ease of tryat.ai on-demand services, where help is
           just a message away. Whether you're looking for a last-minute
           cleaner to tidy up your home, a reliable electrician to fix that
           faulty wiring, a dog walker for your pet, or even a yoga instructor
           for a private session, tryat.ai connects you with trusted
           professionals in real-time. Simply send a request via WhatsApp, and
-          we’ll instantly match you with nearby experts, making your life
+          we will instantly match you with nearby experts, making your life
           easier with fast, efficient, and personalized service. Whatever you
-          need, Tryat.ai delivers – anytime, anywhere!
+          need, tryat.ai delivers – anytime, anywhere!
         </p>
       </div>
 
