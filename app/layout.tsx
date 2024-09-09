@@ -1,4 +1,4 @@
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from '@vercel/analytics/react'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 
@@ -54,12 +54,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
+          {/* <TailwindIndicator /> */}
           <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex flex-col flex-1 bg-muted/50">{children}</main>
+            <main className="flex flex-col flex-1 bg-muted/50 flex-grow">
+              {children}
+            </main>
+            <FooterText />
           </div>
-          {/* <TailwindIndicator /> */}
-          <FooterText/>
         </Providers>
         <Analytics />
       </body>

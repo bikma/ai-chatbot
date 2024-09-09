@@ -55,25 +55,36 @@ export function Header() {
           <UserOrLogin />
         </React.Suspense>
       </div>
-      <div className="flex items-center justify-end space-x-2">
-        {/* <a
-          target="_blank"
-          href="https://github.com/vercel/nextjs-ai-chatbot/"
+      <div className="flex items-center justify-end space-x-8">
+        <a
+          href="/"
           rel="noopener noreferrer"
-          className={cn(buttonVariants({ variant: 'outline' }))}
+          // className={cn(buttonVariants({ variant: 'outline' }))}
         >
-          <IconGitHub />
-          <span className="hidden ml-2 md:flex">GitHub</span>
+          <span className="hidden ml-2 md:flex">Home</span>
         </a>
         <a
-          href="https://vercel.com/templates/Next.js/nextjs-ai-chatbot"
-          target="_blank"
-          className={cn(buttonVariants())}
+          href="/dashboard"
+          rel="noopener noreferrer"
+          // className={cn(buttonVariants({ variant: 'outline' }))}
         >
-          <IconVercel className="mr-2" />
-          <span className="hidden sm:block">Deploy to Vercel</span>
-          <span className="sm:hidden">Deploy</span>
-        </a> */}
+          <span className="hidden ml-2 md:flex">Dashboard</span>
+        </a>
+        <a
+          href="/about"
+          rel="noopener noreferrer"
+          // className={cn(buttonVariants({ variant: 'outline' }))}
+        >
+          <span className="hidden ml-2 md:flex">About</span>
+        </a>
+        <a
+          href="/contact"
+          rel="noopener noreferrer"
+          // className={cn(buttonVariants({ variant: 'outline' }))}
+        >
+          <span className="hidden ml-2 md:flex">Contact</span>
+        </a>
+         
       </div>
     </header>
   )
