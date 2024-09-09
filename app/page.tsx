@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default async function Home() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center pt-16">
       {/* Left side: Text content */}
       <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-2xl mb-4 font-bold">

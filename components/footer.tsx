@@ -11,7 +11,7 @@ export function FooterText({
   return (
     <div
       className={cn(
-        'sticky top-0 z-50 flex items-center justify-between w-full h-16 px-4 border-t shrink-0 bg-gradient-to-b from-background/10 via-background/50 to-background/80 backdrop-blur-xl',
+        'sticky top-0 z-50 flex items-center justify-between w-full h-16 px-4 shrink-0 bg-gradient-to-b from-background/10 via-background/50 to-background/80 backdrop-blur-xl',
         className
       )}
       {...props}
