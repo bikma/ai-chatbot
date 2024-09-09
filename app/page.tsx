@@ -11,7 +11,7 @@ export default async function Home() {
         </h1>
         <p>
           Discover the ease of tryat.ai on-demand services, where help is
-          just a message away. Whether you're looking for a last-minute
+          just a message away. Whether you are looking for a last-minute
           cleaner to tidy up your home, a reliable electrician to fix that
           faulty wiring, a dog walker for your pet, or even a yoga instructor
           for a private session, tryat.ai connects you with trusted
