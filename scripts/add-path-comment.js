@@ -8,8 +8,11 @@ const addPathComment = (filePath) => {
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) throw err;
 
-    // Check if the file already starts with the relative path comment
-    if (!data.startsWith(comment)) {
+    // Normalize content to avoid formatting differences, check if the comment is already present
+    const fileContentWithoutWhitespace = data.trim().replace(/\s/g, '');
+    const commentWithoutWhitespace = comment.trim().replace(/\s/g, '');
+
+    if (!fileContentWithoutWhitespace.startsWith(commentWithoutWhitespace)) {
       const updatedContent = comment + data;
       fs.writeFile(filePath, updatedContent, 'utf8', (err) => {
         if (err) throw err;
