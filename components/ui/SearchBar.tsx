@@ -1,3 +1,4 @@
+// components\ui\SearchBar.tsx
 'use client'
 import { useState } from 'react'
 
