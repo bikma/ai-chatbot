@@ -2,7 +2,7 @@
 // app\dashboard\page.tsx
 
 'use client'
-
+// some change
 import { useState, useEffect } from 'react'
 import SearchBar from '../../components/ui/SearchBar'
 import ServicesGrid from '@/components/dashboard/ServicesGrid'
