@@ -19,8 +19,13 @@ export default function Dashboard() {
   const [filteredServices, setFilteredServices] = useState<TextService[]>([])
   const [mapServices, setMapServices] = useState<MapService[]>([])
   const [sortOption, setSortOption] = useState('proximity')
+  const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // This code will only run on the client side
+      setWindowWidth(window.innerWidth)
+    }
     // Filter services based on search query
     if (searchQuery === '') {
       setFilteredServices(TextServicesData) // Show all services if no search query

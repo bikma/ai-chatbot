@@ -10,7 +10,9 @@
     "seed": "node -r dotenv/config ./scripts/seed.mjs",
     "type-check": "tsc --noEmit",
     "format:write": "prettier --write \"{app,lib,components}/**/*.{ts,tsx,mdx}\" --cache",
-    "format:check": "prettier --check \"{app,lib,components}**/*.{ts,tsx,mdx}\" --cache"
+    "format:check": "prettier --check \"{app,lib,components}**/*.{ts,tsx,mdx}\" --cache",
+    "prepare": "husky install"
+
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.34",
@@ -66,13 +68,15 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/react-syntax-highlighter": "^15.5.13",
-    "@typescript-eslint/parser": "^7.14.1",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
     "autoprefixer": "^10.4.19",
     "dotenv": "^16.4.5",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.1.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-tailwindcss": "^3.14.0",
+    "husky": "^9.1.6",
     "postcss": "^8.4.39",
     "prettier": "^3.3.2",
     "tailwind-merge": "^2.3.0",

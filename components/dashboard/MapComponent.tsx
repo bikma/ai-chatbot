@@ -41,6 +41,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ services }) => {
     const data = await response.json()
     if (data && data.length > 0) {
       const { lat, lon } = data[0]
+      console.log(lat, lon)
       setSearchCoords([parseFloat(lat), parseFloat(lon)])
     }
   }

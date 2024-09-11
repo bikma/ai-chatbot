@@ -1,9 +1,14 @@
+'use client'
 import { useState } from 'react'
 
-export default function SearchBar({ onSearch }) {
+interface SearchBarProps {
+  onSearch: (query: string) => void // Specify the type for onSearch prop
+}
+
+export default function SearchBar({ onSearch }: SearchBarProps) {
   const [searchQuery, setSearchQuery] = useState('')
 
-  const handleInputChange = e => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value
     setSearchQuery(query)
     onSearch(query) // Passing the query to the parent
