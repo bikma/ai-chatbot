@@ -7,10 +7,10 @@ import { type Metadata } from 'next'
 //     }
 //   }
 // }
-export default async function About() {
+export default async function HowTo() {
   return (
     <div className="flex items-center justify-center mt-[300px]">
-      <h1 className="text-2xl text-gray-500">About page</h1>
+      <h1 className="text-2xl text-gray-500">How To page</h1>
     </div>
   )
 }

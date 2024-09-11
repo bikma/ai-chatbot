@@ -64,6 +64,51 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
+
+  .tabs button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  
+  .tabs button.active {
+    background-color: #0070f3;
+    color: white;
+  }
+  
+  .tab-content {
+    margin-top: 20px;
+  }
+
+  .leaflet-container {
+    height: 500px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .marker-cluster-small {
+    background-color: rgba(181, 226, 140, 0.6);
+  }
+  
+  .marker-cluster-medium {
+    background-color: rgba(241, 211, 87, 0.6);
+  }
+  
+  .marker-cluster-large {
+    background-color: rgba(253, 156, 115, 0.6);
+  }
+  
+  .marker-cluster div {
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  
+  
 }
  
 @layer base {
