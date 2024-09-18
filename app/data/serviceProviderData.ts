@@ -1,4 +1,4 @@
-// app/data/serviceProviderData.ts
+// app\data\serviceProviderData.ts
 
 export const ServicesData = [
   {
