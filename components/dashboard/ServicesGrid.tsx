@@ -1,9 +1,9 @@
 // components/dashboard/ServiceGrid.tsx
 
-import { TextService } from '@/app/types/types'
+import { ServiceDataType } from '@/app/types/types'
 
 interface ServiceGridProps {
-  services: TextService[] // Accept services prop
+  services: ServiceDataType[] // Accept services prop
 }
 
 const ServiceGrid: React.FC<ServiceGridProps> = ({ services }) => {
@@ -11,16 +11,16 @@ const ServiceGrid: React.FC<ServiceGridProps> = ({ services }) => {
     <div className="services-grid grid grid-cols-3 gap-4">
       {services.map(service => (
         <div
-          key={service.id}
+          key={service.providerId}
           className="service-tile p-4 border rounded-lg shadow"
         >
           <h3 className="font-bold">
-            {service.type} ({service.providers} providers)
+            {service.name} ({service.contact}) - {service.location}
           </h3>
           <ul>
-            {service.categories.map((category, index) => (
+            {service.servicesOffered.map((s, index) => (
               <li key={index} className="text-sm text-gray-600">
-                • {category}
+                • {s}
               </li>
             ))}
           </ul>

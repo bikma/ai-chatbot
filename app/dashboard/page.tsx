@@ -1,37 +1,33 @@
-// app\dashboard\page.tsx
+// app/dashboard/page.tsx
 
 'use client'
-// some change
+
 import { useState, useEffect } from 'react'
-import SearchBar from '../../components/ui/SearchBar'
+import SearchBar from '@/components/dashboard/SearchBar'
 import ServicesGrid from '@/components/dashboard/ServicesGrid'
 import SortFilter from '@/components/ui/SortFilter'
-import MapComponent from '@/components/dashboard/MapComponent'
-import { MapService, TextService } from '@/app/types/types'
-import {
-  MapServicesData,
-  TextServicesData
-} from '@/app/data/serviceProviderData'
+import { ServicesData } from '@/app/data/serviceProviderData'
 
 export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState('providerText')
+  const [activeTab, setActiveTab] = useState('provider')
   const [searchQuery, setSearchQuery] = useState('')
-  const [filteredServices, setFilteredServices] = useState<TextService[]>([])
-  const [mapServices, setMapServices] = useState<MapService[]>([])
+  const [filteredServices, setFilteredServices] = useState(ServicesData)
   const [sortOption, setSortOption] = useState('proximity')
-  const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // This code will only run on the client side
-      setWindowWidth(window.innerWidth)
-    }
-    // Filter services based on search query
     if (searchQuery === '') {
-      setFilteredServices(TextServicesData) // Show all services if no search query
+      setFilteredServices(ServicesData) // Show all services if no search query
     } else {
-      const filtered = TextServicesData.filter(service =>
-        service.type.toLowerCase().includes(searchQuery.toLowerCase())
+      const filtered = ServicesData.filter(
+        service =>
+          service.servicesOffered.some(serviceType =>
+            serviceType.toLowerCase().includes(searchQuery.toLowerCase())
+          ) ||
+          service.prompt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          service.tags.some(tag =>
+            tag.toLowerCase().includes(searchQuery.toLowerCase())
+          ) ||
+          service.location.toLowerCase().includes(searchQuery.toLowerCase())
       )
       setFilteredServices(filtered)
     }
@@ -39,7 +35,7 @@ export default function Dashboard() {
 
   const renderTabContent = () => {
     switch (activeTab) {
-      case 'providerText':
+      case 'provider':
         return (
           <>
             <SearchBar onSearch={(query: string) => setSearchQuery(query)} />
@@ -47,12 +43,16 @@ export default function Dashboard() {
             <ServicesGrid services={filteredServices} />
           </>
         )
-      case 'providerMap':
-        return <MapComponent services={MapServicesData} />
-      case 'requesterText':
-        return <div>Service Requester Text View (Coming Soon)</div>
-      case 'requesterMap':
-        return <div>Service Requester Map View (Coming Soon)</div>
+      case 'requester':
+        return (
+          // add request dashboard
+          <>
+            <h1>hello</h1>
+            <SearchBar onSearch={(query: string) => setSearchQuery(query)} />
+            <SortFilter sortOption={sortOption} setSortOption={setSortOption} />
+            <ServicesGrid services={filteredServices} />
+          </>
+        )
       default:
         return null
     }
@@ -63,28 +63,16 @@ export default function Dashboard() {
       <h1 className="text-3xl font-bold mb-4">Dashboard</h1>
       <div className="tabs flex space-x-4 mb-6">
         <button
-          className={`tab ${activeTab === 'providerText' ? 'active' : ''}`}
-          onClick={() => setActiveTab('providerText')}
+          className={`tab ${activeTab === 'provider' ? 'active' : ''}`}
+          onClick={() => setActiveTab('provider')}
         >
-          Service Provider (Text)
+          Service Provider
         </button>
         <button
-          className={`tab ${activeTab === 'providerMap' ? 'active' : ''}`}
-          onClick={() => setActiveTab('providerMap')}
+          className={`tab ${activeTab === 'requester' ? 'active' : ''}`}
+          onClick={() => setActiveTab('requester')}
         >
-          Service Provider (Map)
-        </button>
-        <button
-          className={`tab ${activeTab === 'requesterText' ? 'active' : ''}`}
-          onClick={() => setActiveTab('requesterText')}
-        >
-          Service Requester (Text)
-        </button>
-        <button
-          className={`tab ${activeTab === 'requesterMap' ? 'active' : ''}`}
-          onClick={() => setActiveTab('requesterMap')}
-        >
-          Service Requester (Map)
+          Service Requester
         </button>
       </div>
       <div className="tab-content">{renderTabContent()}</div>

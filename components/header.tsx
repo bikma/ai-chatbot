@@ -71,6 +71,13 @@ export function Header() {
           <span className="hidden ml-2 md:flex">Dashboard</span>
         </a>
         <a
+          href="/serviceProviderList"
+          rel="noopener noreferrer"
+          // className={cn(buttonVariants({ variant: 'outline' }))}
+        >
+          <span className="hidden ml-2 md:flex">Provider List</span>
+        </a>
+        <a
           href="/howto"
           rel="noopener noreferrer"
           // className={cn(buttonVariants({ variant: 'outline' }))}

@@ -1,5 +1,14 @@
 // app/types/types.ts
 
+export interface ServiceDataType {
+  providerId: number
+    name: string
+    contact: string
+    location: string
+    servicesOffered: string[]
+    prompt: string
+    tags: string[]
+}
 export interface MapService {
     id: number
     type: string
@@ -15,3 +24,5 @@ export interface TextService {
     providers: number
     categories: string[]
   }
+
+
