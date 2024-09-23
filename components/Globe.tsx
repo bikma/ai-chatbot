@@ -1,3 +1,4 @@
+// components\Globe.tsx
 import React from 'react'
 
 const Globe = () => {

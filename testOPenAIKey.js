@@ -1,3 +1,4 @@
+// testOPenAIKey.js
 //testOpenAIKey.js
 
 import { Configuration, OpenAIApi } from 'openai';

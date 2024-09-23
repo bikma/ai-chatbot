@@ -1,3 +1,4 @@
+// app\types\types.ts
 // app/types/types.ts
 
 export interface ServiceDataType {

@@ -1,3 +1,4 @@
+// components\dashboard\ServicesGrid.tsx
 // components/dashboard/ServiceGrid.tsx
 
 import { ServiceDataType } from '@/app/types/types'

@@ -1,3 +1,4 @@
+// utils\openaiClient.js
 // utils/openaiClient.js
 import { Configuration, OpenAIApi } from 'openai';
 import dotenv from 'dotenv';

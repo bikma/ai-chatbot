@@ -1,3 +1,4 @@
+// components\dashboard\SearchBar.tsx
 // components\ui\SearchBar.tsx
 import React, { useState } from 'react'
 
