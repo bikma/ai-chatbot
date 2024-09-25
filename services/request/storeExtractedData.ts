@@ -1,3 +1,4 @@
+// services\request\storeExtractedData.ts
 import supabase from '../../lib/supabaseClient';
 
 export async function storeExtractedData(requestId: string, extractedData: any) {

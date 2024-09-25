@@ -1,3 +1,4 @@
+// lib\openAiClient.ts
 import OpenAI from 'openai';
 
 const openai = new OpenAI({

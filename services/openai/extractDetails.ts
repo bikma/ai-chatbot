@@ -1,3 +1,4 @@
+// services\openai\extractDetails.ts
 import openai from '../../lib/openAiClient';
 
 export async function extractDetailsFromPrompt(prompt: string) {

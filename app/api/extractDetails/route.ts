@@ -1,3 +1,4 @@
+// app\api\extractDetails\route.ts
 import { NextResponse } from 'next/server';
 import { extractDetailsFromPrompt } from '@/services/openai/extractDetails';  // Adjust path as necessary
 
